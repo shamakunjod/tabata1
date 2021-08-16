@@ -1,0 +1,135 @@
+.grid-container {
+    display:grid;
+/*    background-color: bisque;*/
+    grid-template-areas:  'titulo titulo titulo titulo'
+    'header header header header'
+    'reloj reloj tiempos tiempos'
+    'imagen imagen descripE descripE';
+    grid-template-rows: auto auto 70% auto;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.titulo-text {
+    font-family: 'Open Sans';
+    font-size:8mm;
+}
+.titulo{
+    grid-area: titulo;
+}
+
+.logout {
+    float: right;
+}
+
+.header{
+    grid-area: header;
+}
+
+.reloj{
+    grid-area: reloj;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    align-items:center;
+    text-align: center;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #fff;
+    color: #fff;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 138px;
+}
+
+.circle::before {
+    content: '';
+    border-radius: 50%;
+    z-index: -1;
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: calc(50% - 80px);
+    top: calc(50% - 80px);
+    background-color: #1d1d1d;
+}
+
+.seconds-sphere {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(50% - 10px);
+    animation: rotacion 60s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes rotacion {
+	from { 	transform: rotate(-90deg) translateX(60px); }
+	to   {  transform: rotate(270deg) translateX(60px); }
+}
+
+.buttons {
+    margin-top: 0px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paused {
+    height: 10px;
+    border-width: 15px 0 15px 25px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-left: 50px;
+    border-color: transparent transparent transparent #fff;
+    transition: 100ms all ease;
+    will-change: border-width;
+    border-style: solid;
+}
+
+.running {
+    border-style: double;
+    border-width: 0 0 0 20px;
+}
+
+.stop {
+    background-color: #fff;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.tiempos{
+    grid-area:tiempos;
+    text-align:center;
+    
+}
+.tiempos p{
+    align-items: left;
+}
+
+input{
+    margin-left: 2px;
+}
+
+.imagen{
+    grid-area:imagen;
+}
+.descripE{
+    grid-area: descripE;
+}
+/*
+.grid-container div{
+    background-color:rgba(204, 228, 219, 0.801);
+}*/
+body{
+    background-color: aquamarine;
+}
